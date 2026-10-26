@@ -55,6 +55,34 @@ python3 ~/.claude/skills/humane-product/tests/test_smell_scan.py
 
 impeccable 解决"好不好看"。这个 skill 补上另外三件事：动手前锁住意图和范围，做的时候避开交互层的 AI 味，做完用真实任务走一遍。
 
+## Codex 案例：日语 CRM Demo
+
+2026-10-26，使用 Codex 配合 humane-product 和 impeccable 制作「つぎへ CRM」。用户先确认日本 B2B 销售、日语界面，以及客户资料、商谈推进、到期跟进的范围，再实现和走查。技术栈是原生 HTML/CSS/JavaScript，资料保存在当前浏览器。
+
+以下是生成后实际运行的界面截图，客户和商谈资料均为虚构样本。
+
+### 今日跟进
+
+首页直接列出逾期、今日和待定日期的商谈，右侧显示客户背景与沟通记录；记录沟通时一起安排下一次跟进。
+
+![Codex 生成的 CRM 今日跟进页，包含到期事项、商谈详情与沟通记录](assets/examples/codex-crm/follow-ups.png)
+
+### 商谈看板
+
+按初回接触、需求沟通、提案、成交和流失查看商谈，金额与日期来自演示记录，也可以切换为列表。
+
+![Codex 生成的 CRM 商谈看板，按五个阶段展示商谈与金额](assets/examples/codex-crm/pipeline.png)
+
+<details>
+<summary>查看手机上的跟进录入</summary>
+
+<p>窄屏下聚焦当前表单，可填写沟通内容、下一步和跟进日期，输入草稿可以恢复。</p>
+<img src="assets/examples/codex-crm/mobile-follow-up.png" alt="Codex 生成的 CRM 手机跟进表单" width="320">
+
+</details>
+
+本轮 agent 预检：7 项操作任务、10 项数据规则测试通过；8 个页面状态的无障碍自动检查为 0 条违规。尚未经过真实用户验证或日语母语审校；这些截图展示的是 Demo 实现结果。
+
 ## 你可以直接这样说
 
 - "帮我做一个企业名片管理小工具，界面要好用，不要有 AI 味"
@@ -175,7 +203,7 @@ python3 ~/.claude/skills/humane-product/scripts/smell_scan.py src/ --json
 
 - 0.1.x 是试用版。整套流程只在一个演示项目（[名刺管理](examples/meishi-manager/)）里从头跑过，还没有经过真实用户走查
 - 门槛数字（一屏主按钮 1 个、默认筛选条件不超过 3 个、主任务不超过 5 步）是草案，请按你们的产品改
-- 交互清单里要人判断的条目没有自动测试；页面探针只在样例页上测过
+- 交互清单里要人判断的条目没有自动测试；页面探针已在样例页和本次 CRM Demo 上预检，尚未经过真实用户验证
 - 日本企业用户的细节（`references/japan-business.md`）只在用户是日本企业时才用
 
 ## 文件结构
@@ -194,6 +222,7 @@ references/              按需读
 templates/               复制到你的项目 docs/product/
 scripts/                 smell_scan.py、dom_probe.js
 evals/                   触发测试用例、3 组改前改后样例
+assets/examples/         README 中的实际界面案例截图
 examples/                实际案例：截图、意图卡、台账、验收结果
 tests/                   扫描脚本的单元测试
 reports/                 同类 skill 调研、交付说明、触发测试结果
