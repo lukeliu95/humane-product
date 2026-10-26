@@ -1,0 +1,48 @@
+interface:
+  display_name: "Humane Product"
+  short_description: "Lock intent, stop AI scope creep, check interaction AI smell, walk real tasks; visual craft via impeccable"
+  default_prompt: "Use $humane-product to build or change this feature so it does not feel AI-made: write the intent card and fence first, hand visual work to impeccable, then run the smell check and real-task walkthrough before reporting."
+  examples:
+    - "帮我做一个企业名片管理小工具，界面要好用，不要有 AI 味"
+    - "这个功能做得太像 AI 生成的了，帮我去 AI 味"
+    - "加功能之前先写意图卡和不做清单"
+    - "用真实任务走查一遍，看普通销售能不能用"
+    - "只检查这个页面的交互问题，先不要改代码"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "claude"
+    - "openai"
+    - "generic"
+    - "agent-skills-compatible"
+  activation:
+    mode: "manual-or-description-match"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  dependencies:
+    - "impeccable skill (visual craft and implementation); optional, degrades to a note"
+    - "python3 3.9+ for scripts/smell_scan.py"
+    - "a browser tool (Claude Code built-in browser, Chrome extension, or Playwright) for dom_probe.js and walkthroughs"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    generated_public_claims: "evidence-bound"
+    source_of_truth_policy: "read the target product's docs/product/, PRODUCT.md, DESIGN.md and code before designing"
+  permissions:
+    network: "none required"
+    file_write: "the target project's source and docs/product/ only"
+    subprocess: "python3 for the bundled scanner; browser automation for walkthroughs"
+    interactive: "one confirmation round before build (intent card + fence); otherwise only at red lines"
+gates:
+  scaffold:
+    - "SKILL.md frontmatter"
+    - "natural trigger examples"
+    - "clear exclusions"
+  production:
+    - "agents/interface.yaml and agents/openai.yaml"
+    - "evals/trigger_cases.json and a passing generated trigger report"
+    - "tests/test_smell_scan.py passing"
+    - "dom_probe.js checked in a browser on fixtures"
+    - "root-only discoverable SKILL.md entrypoint"

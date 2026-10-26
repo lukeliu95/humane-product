@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>問い合わせ返信</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 720px; padding: 24px; background: #fff; color: #222; }
+  .customer { background: #f4f4f4; padding: 12px; border-radius: 8px; }
+  .panel { margin-top: 16px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; background: linear-gradient(135deg, #f5f3ff, #eef2ff); }
+  .btn { padding: 8px 14px; border-radius: 6px; border: 0; color: #fff; background: #6d28d9; margin-right: 8px; }
+</style>
+</head>
+<body>
+<!-- 評価用の悪い例。内容は架空 -->
+<h1>お問い合わせ #1043</h1>
+<div class="customer">先週注文した商品がまだ届きません。いつ届きますか？</div>
+<div class="panel">
+  <div class="badge"><i class="icon-sparkle"></i> AIが返信を生成しました（Claude 3.5 Sonnet）</div>
+  <div class="typewriter">当然！以下是回复草稿：ご迷惑をおかけしております。商品は明日到着予定です。</div>
+  <p>生成中... トークン消費: 1,234</p>
+  <button class="btn" onclick="send()">送信</button>
+  <button class="btn">再生成</button>
+</div>
+<script>
+  function send() {
+    fetch('/api/send', { method: 'POST' });
+    alert('送信しました！！');
+  }
+</script>
+</body>
+</html>

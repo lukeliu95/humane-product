@@ -1,0 +1,34 @@
+{
+  "note": "Fixtures for scripts/smell_scan.py and scripts/dom_probe.js. *-before pages carry planted smells; *-after pages must come out clean. All data is fictional. E1, A3, A4, E6 in case2 are judgment checks (M) that the scripts cannot see.",
+  "cases": {
+    "case1-before.html": {
+      "scan_must_find": ["B1", "B3", "D1", "D3", "D6", "G1", "G3"],
+      "probe_must_find": ["B1", "B3", "D1", "D3", "D6", "G1", "G3"],
+      "probe_must_be_over": ["C2", "C5"],
+      "planted_for_judgment": ["B2: dashboard title organizes by system, not task", "G4: dashboard-style header"]
+    },
+    "case1-after.html": {
+      "scan_max_findings": 0,
+      "probe_pass": true
+    },
+    "case2-before.html": {
+      "scan_must_find": ["B1", "B1t", "D1", "D1x", "D3", "D4"],
+      "probe_must_find": ["B1", "B1t", "D1", "D3"],
+      "probe_must_be_over": ["C2"],
+      "planted_for_judgment": ["E1: 送信 sends immediately with no review or undo", "A4: only 再生成, no direct edit", "A3/E6: delivery date stated with no source"]
+    },
+    "case2-after.html": {
+      "scan_max_findings": 0,
+      "probe_pass": true
+    },
+    "case3-before.html": {
+      "scan_must_find": ["A2", "B1", "B1t", "D6", "E3", "E5", "G1", "G1x", "G2"],
+      "probe_must_find": ["A2", "B1", "B1t", "D6", "E5", "G1", "G2"],
+      "planted_for_judgment": ["B4: cost shown only after the fact as tokens"]
+    },
+    "case3-after.html": {
+      "scan_max_findings": 0,
+      "probe_pass": true
+    }
+  }
+}

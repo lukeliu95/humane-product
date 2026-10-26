@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>交通費精算</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #222; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; border-bottom: 1px solid #eee; }
+  h1 { font-size: 20px; margin: 0; }
+  .btn { display: inline-block; padding: 8px 14px; border-radius: 6px; border: 0; color: #fff; background: #6d28d9; font-size: 14px; margin-left: 8px; }
+  .btn.alt { background: #2563eb; }
+  .btn.dark { background: #111; }
+  .help { padding: 0 24px; color: #666; font-size: 13px; }
+  .filters { display: flex; gap: 8px; padding: 12px 24px; flex-wrap: wrap; }
+  table { border-collapse: collapse; margin: 0 24px; width: calc(100% - 48px); }
+  td, th { border-bottom: 1px solid #eee; padding: 8px; text-align: left; }
+  .assist { position: fixed; right: 24px; bottom: 24px; background: #7c3aed; color: #fff; border-radius: 999px; padding: 12px 16px; }
+</style>
+</head>
+<body>
+<!-- 評価用の悪い例。表示データは架空 -->
+<header>
+  <h1>交通費精算ダッシュボード 🚀</h1>
+  <div>
+    <button class="btn">新規作成</button>
+    <button class="btn alt">インポート</button>
+    <button class="btn dark">エクスポート</button>
+    <button class="btn">✨ AIで自動入力</button>
+  </div>
+</header>
+<p class="help">このページでは交通費の申請を一覧で確認できます。上部のフィルターを使って期間や部署、金額などの条件で絞り込むことができます。申請の詳細を確認するには各行をクリックしてください。</p>
+<p class="help">AIアシスタントが入力内容を自動でチェックします。もちろんです！今月の申請を表示しています。</p>
+<div class="filters">
+  <label>期間 <input type="date"></label>
+  <label>部署 <select><option>すべて</option></select></label>
+  <label>金額 <input type="number"></label>
+  <label>ステータス <select><option>すべて</option></select></label>
+  <label>交通手段 <select><option>すべて</option></select></label>
+  <label>承認者 <input type="text"></label>
+</div>
+<table>
+  <tr><th>申請者</th><th>日付</th><th>金額</th><th>状態</th></tr>
+  <tr><td>山田 太郎</td><td>2026/10/01</td><td>¥1,200</td><td>pending</td></tr>
+  <tr><td>John Doe</td><td>2026/10/02</td><td>undefined</td><td>failed</td></tr>
+</table>
+<p class="help">データがありません</p>
+<div class="assist">🤖 AIアシスタント</div>
+</body>
+</html>

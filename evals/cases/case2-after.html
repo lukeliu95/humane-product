@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>問い合わせ返信</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 720px; padding: 24px; background: #fff; color: #222; }
+  .customer { background: #f4f4f4; padding: 12px; border-radius: 8px; }
+  .draft { margin-top: 16px; }
+  .editor { min-height: 120px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; line-height: 1.7; }
+  mark { background: #fff1c2; }
+  .check { font-size: 13px; color: #555; }
+  .primary { padding: 8px 16px; border-radius: 6px; border: 0; color: #fff; background: #1f1f1f; }
+  .secondary { padding: 8px 16px; border-radius: 6px; border: 1px solid #ccc; background: #fff; color: #222; margin-left: 8px; }
+</style>
+</head>
+<body>
+<!-- 評価用の良い例。内容は架空 -->
+<h1>お問い合わせ #1043</h1>
+<div class="customer">先週注文した商品がまだ届きません。いつ届きますか？</div>
+<section class="draft">
+  <h2>返信の下書き</h2>
+  <div class="editor" contenteditable="true">お問い合わせありがとうございます。ご注文の商品は <mark>10月28日（水）</mark> にお届けする予定です。お待たせしており申し訳ございません。</div>
+  <p class="check">確認が必要な箇所：お届け日（配送システムの最新情報と照らし合わせてください）</p>
+  <button class="primary" type="button">内容を確認して送信</button>
+  <button class="secondary" type="button">下書きを保存</button>
+</section>
+<div role="status" hidden>送信しました。30秒以内なら<button type="button">取り消す</button>ことができます。</div>
+</body>
+</html>
