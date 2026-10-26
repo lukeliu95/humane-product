@@ -1,0 +1,4 @@
+interface:
+  display_name: "Humane Product"
+  short_description: "Make AI-built products feel made by people: intent, fence, smell check, task walk"
+  default_prompt: "Use $humane-product to build or change this feature: intent card and fence first, visual work through impeccable, then smell check and real-task walkthrough."

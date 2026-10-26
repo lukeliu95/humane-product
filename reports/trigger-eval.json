@@ -1,0 +1,246 @@
+{
+  "ok": true,
+  "threshold": 0.34,
+  "description_concepts": [
+    "build_action",
+    "humane_goal",
+    "product_surface",
+    "scope_guard",
+    "verify"
+  ],
+  "missing_description_concepts": [],
+  "summary": {
+    "total": 18,
+    "passed": 18,
+    "false_positive": 0,
+    "false_negative": 0,
+    "pass_rate": 1.0
+  },
+  "failures": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "帮我做一个企业名片管理小工具，界面要好用，不要有 AI 味",
+        "family": "new-tool",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "build_action",
+          "humane_goal",
+          "product_surface"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "这个报销功能做得太像 AI 生成的了，帮我去AI味",
+        "family": "refine",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "build_action",
+          "humane_goal",
+          "product_surface"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "给列表页加一个筛选功能，先写意图卡和不做清单再动手",
+        "family": "scope",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "build_action",
+          "product_surface",
+          "scope_guard"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "新做的客户管理页面，用真实任务走查一遍，看普通销售能不能用",
+        "family": "verify",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "build_action",
+          "product_surface",
+          "verify"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Build an internal tool for our sales reps and make it feel human, not AI-generated",
+        "family": "new-tool-en",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "build_action",
+          "humane_goal",
+          "product_surface"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "AI 老是自己加筛选条件和字段，帮我把这个功能的范围锁住",
+        "family": "scope",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "product_surface",
+          "scope_guard"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "做一个带回复草稿的客服界面，要符合日本用户的操作习惯",
+        "family": "new-tool",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "build_action",
+          "humane_goal",
+          "product_surface"
+        ],
+        "negative_pattern": null
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "把首页按钮颜色改成品牌红",
+        "family": "visual",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "build_action"
+        ],
+        "negative_pattern": "颜色"
+      },
+      {
+        "prompt": "帮我做一个产品发布的落地页",
+        "family": "landing",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "build_action",
+          "product_surface"
+        ],
+        "negative_pattern": "落地页"
+      },
+      {
+        "prompt": "做一份方法论 PPT",
+        "family": "deck",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "build_action"
+        ],
+        "negative_pattern": "ppt"
+      },
+      {
+        "prompt": "优化这个 SQL 查询",
+        "family": "backend",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "sql"
+      },
+      {
+        "prompt": "把这段日语邮件翻译成中文",
+        "family": "translate",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "翻译"
+      },
+      {
+        "prompt": "写一个后端 API 接口给前端用",
+        "family": "backend",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "后端"
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "把这个页面的字体和间距调一下",
+        "family": "visual",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "product_surface"
+        ],
+        "negative_pattern": "字体"
+      },
+      {
+        "prompt": "给这个仪表盘加点动效",
+        "family": "visual",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "动效"
+      },
+      {
+        "prompt": "/impeccable polish pricing",
+        "family": "explicit-impeccable",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "impeccable"
+      },
+      {
+        "prompt": "帮我 code review 一下这个功能的代码",
+        "family": "review",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "product_surface"
+        ],
+        "negative_pattern": "code review"
+      },
+      {
+        "prompt": "生成一个 skill 的评估报告",
+        "family": "meta",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      }
+    ]
+  }
+}

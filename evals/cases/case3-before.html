@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSVインポート</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 720px; padding: 24px; background: #fff; color: #222; }
+  label { display: block; margin: 12px 0; }
+  .error { color: #b00020; }
+  .btn { padding: 8px 14px; border-radius: 6px; border: 0; color: #fff; background: #2563eb; }
+</style>
+</head>
+<body>
+<!-- 評価用の悪い例。内容は架空 -->
+<h1>CSVインポート設定 ⚙️</h1>
+<p>Powered by GPT-4o。精度99.9%で高速処理！</p>
+<label>プロンプト <textarea placeholder="プロンプトを入力してください"></textarea></label>
+<label>temperature <input type="range" min="0" max="2" step="0.1"></label>
+<p>消費トークン: 1,234 tokens</p>
+<div class="error">エラーが発生しました。もう一度お試しください。</div>
+<button class="btn" onclick="if (confirm('本当に実行しますか？')) { run(); }">実行</button>
+<p>テスト株式会社 / test@example.com</p>
+</body>
+</html>

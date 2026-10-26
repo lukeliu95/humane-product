@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0-luke",
+  "generated_at": "2026-10-26",
+  "package": {
+    "name": "humane-product",
+    "version": "0.1.1",
+    "owner": "Luke Liu",
+    "maturity_tier": "production",
+    "lifecycle_stage": "pilot",
+    "upstream_inspiration": null,
+    "upstream_sync": {}
+  },
+  "intent": {
+    "description": "Use when building or changing a product, tool, feature, or app screen that real people operate and the result must not feel AI-made: 做产品、做小工具、做功能、改界面时要去 AI 味、符合人的操作习惯。The caller layer on top of impeccable: locks intent with an 意图卡 and 不做清单 before any UI code, stops the AI from adding filters, fields, menus or terms nobody asked for, hands visual craft and implementation to impeccable, then checks interaction AI smell and runs real-task walkthroughs (任务走查、验收) and writes conclusions back to a ledger. Not for marketing landing pages, slide decks, pure visual tweaks such as colors, fonts or spacing (call impeccable directly), backend-only work, or translation.",
+    "job_to_be_done": "Make products built with AI coding agents feel made by people for people: lock intent and scope before UI code, stop unrequested additions, hand visual craft to impeccable, and verify with interaction smell checks and real-task walkthroughs.",
+    "target_users": [
+      "solo product builders and small teams who build with Claude Code or Codex"
+    ],
+    "inputs": [
+      "a feature or product request",
+      "the target repository",
+      "PRODUCT.md / DESIGN.md when present",
+      "real samples"
+    ],
+    "outputs": [
+      "intent card",
+      "LEDGER.md",
+      "task-tests.md",
+      "check reports with P0-P3 findings",
+      "built UI via impeccable"
+    ],
+    "exclusions": [
+      "marketing landing pages",
+      "slide decks",
+      "pure visual tweaks",
+      "backend-only work",
+      "translation"
+    ],
+    "luke_defaults": {}
+  },
+  "triggers": {
+    "should_trigger": [
+      "帮我做一个企业名片管理小工具，界面要好用，不要有 AI 味",
+      "这个报销功能做得太像 AI 生成的了，帮我去AI味",
+      "给列表页加一个筛选功能，先写意图卡和不做清单再动手",
+      "新做的客户管理页面，用真实任务走查一遍，看普通销售能不能用",
+      "Build an internal tool for our sales reps and make it feel human, not AI-generated",
+      "AI 老是自己加筛选条件和字段，帮我把这个功能的范围锁住",
+      "做一个带回复草稿的客服界面，要符合日本用户的操作习惯"
+    ],
+    "should_not_trigger": [
+      "把首页按钮颜色改成品牌红",
+      "帮我做一个产品发布的落地页",
+      "做一份方法论 PPT",
+      "优化这个 SQL 查询",
+      "把这段日语邮件翻译成中文",
+      "写一个后端 API 接口给前端用"
+    ],
+    "near_neighbor": [
+      "把这个页面的字体和间距调一下",
+      "给这个仪表盘加点动效",
+      "/impeccable polish pricing",
+      "帮我 code review 一下这个功能的代码",
+      "生成一个 skill 的评估报告"
+    ]
+  },
+  "workflow": {
+    "router_rules": [],
+    "compact_workflow": [],
+    "gate_ladder": [],
+    "output_contract": []
+  },
+  "resources": {
+    "references": [
+      "references/fence.md",
+      "references/impeccable-bridge.md",
+      "references/intent-card.md",
+      "references/interaction-smell.md",
+      "references/japan-business.md",
+      "references/ledger.md",
+      "references/sample-check.md",
+      "references/task-walk.md"
+    ],
+    "scripts": [
+      "scripts/smell_scan.py"
+    ],
+    "evals": [
+      "evals/cases/case1-after.html",
+      "evals/cases/case1-before.html",
+      "evals/cases/case2-after.html",
+      "evals/cases/case2-before.html",
+      "evals/cases/case3-after.html",
+      "evals/cases/case3-before.html",
+      "evals/cases/expected.json",
+      "evals/trigger_cases.json"
+    ],
+    "reports": [
+      "reports/creation-handoff.md",
+      "reports/prior-art-research.md",
+      "reports/skill-ir.json",
+      "reports/trigger-eval.json"
+    ]
+  },
+  "portability": {
+    "canonical_format": "agent-skills",
+    "adapter_targets": [
+      "claude",
+      "openai",
+      "generic",
+      "agent-skills-compatible"
+    ],
+    "activation": {
+      "mode": "manual-or-description-match",
+      "paths": []
+    },
+    "execution": {
+      "context": "inline",
+      "shell": "bash"
+    },
+    "trust": {
+      "source_tier": "local",
+      "remote_inline_execution": "forbid",
+      "generated_public_claims": "evidence-bound",
+      "source_of_truth_policy": "read the target product's docs/product/, PRODUCT.md, DESIGN.md and code before designing"
+    },
+    "permissions": {
+      "network": "none required",
+      "file_write": "the target project's source and docs/product/ only",
+      "subprocess": "python3 for the bundled scanner; browser automation for walkthroughs",
+      "interactive": "one confirmation round before build (intent card + fence); otherwise only at red lines"
+    },
+    "degradation": {}
+  },
+  "gates": {
+    "scaffold": [
+      "SKILL.md frontmatter",
+      "natural trigger examples",
+      "clear exclusions"
+    ],
+    "production": [
+      "agents/interface.yaml and agents/openai.yaml",
+      "evals/trigger_cases.json and a passing generated trigger report",
+      "tests/test_smell_scan.py passing",
+      "dom_probe.js checked in a browser on fixtures",
+      "root-only discoverable SKILL.md entrypoint"
+    ]
+  },
+  "evidence_boundary": {
+    "generated_reports_are_evidence": true,
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what local validation, install proof, human review, or provider-backed evidence actually supports"
+  }
+}

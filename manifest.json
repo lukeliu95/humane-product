@@ -1,0 +1,94 @@
+{
+  "name": "humane-product",
+  "version": "0.1.1",
+  "owner": "Luke Liu",
+  "updated_at": "2026-10-26",
+  "status": "pilot",
+  "maturity_tier": "production",
+  "lifecycle_stage": "pilot",
+  "context_budget_tier": "production",
+  "review_cadence": "after each real project run; at least quarterly",
+  "install_path": "~/.claude/skills/humane-product (Claude Code) or ~/.agents/skills/humane-product (Codex)",
+  "depends_on": {
+    "impeccable": "required base skill, >=4.7.0 (https://github.com/pbakaus/impeccable); install with `npx impeccable install`"
+  },
+  "method_sources": [
+    "An internal discussion deck on converging AI-built products (not published)",
+    "https://impeccable.cn/designing/ (four phases: start, iterate, polish, maintain)",
+    "https://github.com/lukeliu95/luke-meta-skill (authoring loop, gates, trigger eval)",
+    "https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/dogfood/adversarial-ux-test",
+    "https://github.com/deepseek-ai/deepseek-harness/tree/master/.agents/skills/dsh-client-ui-ux",
+    "https://github.com/n8n-io/n8n/tree/master/.agents/skills/content-design",
+    "https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill",
+    "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "https://doi.org/10.1145/3290605.3300233"
+  ],
+  "intent": {
+    "job_to_be_done": "Make products built with AI coding agents feel made by people for people: lock intent and scope before UI code, stop unrequested additions, hand visual craft to impeccable, and verify with interaction smell checks and real-task walkthroughs.",
+    "target_users": [
+      "solo product builders and small teams who build with Claude Code or Codex"
+    ],
+    "inputs": [
+      "a feature or product request",
+      "the target repository",
+      "PRODUCT.md / DESIGN.md when present",
+      "real samples"
+    ],
+    "outputs": [
+      "intent card",
+      "LEDGER.md",
+      "task-tests.md",
+      "check reports with P0-P3 findings",
+      "built UI via impeccable"
+    ],
+    "exclusions": [
+      "marketing landing pages",
+      "slide decks",
+      "pure visual tweaks",
+      "backend-only work",
+      "translation"
+    ]
+  },
+  "release_gates": {
+    "local": [
+      "python3 tests/test_smell_scan.py passes on Python 3.9 and 3.12",
+      "luke-meta-skill validate_skill.py: no failures",
+      "luke-meta-skill trigger_eval.py: all cases pass",
+      "dom_probe.js checked in a real browser on evals/cases"
+    ],
+    "pilot": [
+      "one real product built end to end with the skill (planned: business card management tool)",
+      "thresholds confirmed by the team"
+    ]
+  },
+  "pending_decisions": [
+    "Thresholds (1 primary button per screen, 3 default filters, 5 steps for the main task) are drafts awaiting team confirmation",
+    "Sample size and usable-rate gate for sample-check are undecided",
+    "Owner of task tests and rollout plan (open items from the deck)"
+  ],
+  "changelog": [
+    {
+      "version": "0.1.1",
+      "date": "2026-10-26",
+      "changes": [
+        "Open-sourced under MIT; README rewritten for public use",
+        "impeccable is now a hard prerequisite: the skill stops and asks the user to install it first",
+        "Removed conclusions drawn from internal material and internal project names",
+        "Team default style is now marked as an example to replace"
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-10-26",
+      "changes": [
+        "First version: SKILL.md flow (intent, fence, sample, build via impeccable, check, ledger) and five red lines",
+        "References: impeccable bridge, intent card, fence, sample check, interaction smell list (A-G), task walk, ledger, Japanese business details",
+        "Templates: intent card, LEDGER, task-tests",
+        "Scripts: smell_scan.py (source scan) and dom_probe.js (in-page counts and text findings)",
+        "Evals: 3 before/after fixture pairs, 18 trigger cases, 20 unit tests"
+      ]
+    }
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/lukeliu95/humane-product"
+}

@@ -1,0 +1,39 @@
+{
+  "recommended_threshold": 0.34,
+  "description_required_concepts": ["product_surface", "humane_goal", "scope_guard", "verify"],
+  "positive_concepts": {
+    "product_surface": ["product", "tool", "feature", "app screen", "app", "internal tool", "ui", "产品", "小工具", "工具", "功能", "界面", "页面", "画面", "管理工具", "系统", "客服界面"],
+    "humane_goal": ["ai 味", "ai味", "去ai味", "ai-made", "ai-generated", "not feel ai", "human", "humane", "操作习惯", "人性化", "好用", "像人做的", "机器味", "不像 ai"],
+    "scope_guard": ["意图卡", "不做清单", "范围", "边界", "自己加", "擅自", "scope", "intent", "nobody asked for"],
+    "verify": ["走查", "验收", "任务走查", "真实任务", "walkthrough", "walkthroughs", "试用", "普通销售能不能用"],
+    "build_action": ["build", "building", "make", "change", "changing", "做", "做一个", "开发", "设计", "加一个", "重做", "改"]
+  },
+  "negative_patterns": [
+    "落地页", "landing page", "ppt", "幻灯片", "slides", "deck", "颜色", "配色", "字体", "间距", "动效",
+    "后端", "backend", "sql", "数据库", "翻译", "translate", "视频", "impeccable", "代码审查", "code review"
+  ],
+  "should_trigger": [
+    {"text": "帮我做一个企业名片管理小工具，界面要好用，不要有 AI 味", "family": "new-tool"},
+    {"text": "这个报销功能做得太像 AI 生成的了，帮我去AI味", "family": "refine"},
+    {"text": "给列表页加一个筛选功能，先写意图卡和不做清单再动手", "family": "scope"},
+    {"text": "新做的客户管理页面，用真实任务走查一遍，看普通销售能不能用", "family": "verify"},
+    {"text": "Build an internal tool for our sales reps and make it feel human, not AI-generated", "family": "new-tool-en"},
+    {"text": "AI 老是自己加筛选条件和字段，帮我把这个功能的范围锁住", "family": "scope"},
+    {"text": "做一个带回复草稿的客服界面，要符合日本用户的操作习惯", "family": "new-tool"}
+  ],
+  "should_not_trigger": [
+    {"text": "把首页按钮颜色改成品牌红", "family": "visual"},
+    {"text": "帮我做一个产品发布的落地页", "family": "landing"},
+    {"text": "做一份方法论 PPT", "family": "deck"},
+    {"text": "优化这个 SQL 查询", "family": "backend"},
+    {"text": "把这段日语邮件翻译成中文", "family": "translate"},
+    {"text": "写一个后端 API 接口给前端用", "family": "backend"}
+  ],
+  "near_neighbor": [
+    {"text": "把这个页面的字体和间距调一下", "family": "visual"},
+    {"text": "给这个仪表盘加点动效", "family": "visual"},
+    {"text": "/impeccable polish pricing", "family": "explicit-impeccable"},
+    {"text": "帮我 code review 一下这个功能的代码", "family": "review"},
+    {"text": "生成一个 skill 的评估报告", "family": "meta"}
+  ]
+}
