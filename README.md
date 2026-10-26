@@ -65,6 +65,12 @@ impeccable 解决"好不好看"。这个 skill 补上另外三件事：动手前
 
 也可以带子命令：`/humane-product intent`、`fence`、`sample`、`check`、`smell`、`walk`、`ledger`。
 
+## 实际案例
+
+[名刺管理](examples/meishi-manager/)：用 Claude Code 从一句“做一个名片管理工具 demo，PC 网页”开始，走完意图卡、边界、impeccable 实现、任务走查和独立评审。案例里有截图、意图卡、台账和每轮验收结果。
+
+![名刺管理：一览和详情](examples/meishi-manager/screenshots/01-list.png)
+
 ## 它会做什么
 
 | 步 | 做什么 | 谁来做 |
@@ -167,7 +173,7 @@ python3 ~/.claude/skills/humane-product/scripts/smell_scan.py src/ --json
 
 ## 已知限制
 
-- 0.1.x 是试用版。整套流程还没有在多个真实项目里从头跑过
+- 0.1.x 是试用版。整套流程只在一个演示项目（[名刺管理](examples/meishi-manager/)）里从头跑过，还没有经过真实用户走查
 - 门槛数字（一屏主按钮 1 个、默认筛选条件不超过 3 个、主任务不超过 5 步）是草案，请按你们的产品改
 - 交互清单里要人判断的条目没有自动测试；页面探针只在样例页上测过
 - 日本企业用户的细节（`references/japan-business.md`）只在用户是日本企业时才用
@@ -188,6 +194,7 @@ references/              按需读
 templates/               复制到你的项目 docs/product/
 scripts/                 smell_scan.py、dom_probe.js
 evals/                   触发测试用例、3 组改前改后样例
+examples/                实际案例：截图、意图卡、台账、验收结果
 tests/                   扫描脚本的单元测试
 reports/                 同类 skill 调研、交付说明、触发测试结果
 ```
